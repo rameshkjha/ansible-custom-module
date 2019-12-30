@@ -15,3 +15,12 @@ cd <to directory where you want to store ansible artifacts>
 git clone https://github.com/ansible/ansible.git
 
 You must set export ANSIBLE_LIBRARY=/Users//tools/ansible/lib/ <absolute path of your ./lib directory where custom modules are stored>
+
+You must call generate_playbook_log at least in your playbook as first task, rest depending upon your need either you can use it or leave it.
+
+ - name: fetch local hostname 
+   hosts: localhost
+   gather_facts: no
+   tasks:
+     - name: generate playbook log
+       generate_playbook_log:
